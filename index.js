@@ -71,3 +71,20 @@ Array.prototype.mySome = function(callback) {
   // at this point we're guaranteed all elements invokes false, we're done
   return false;
 };
+
+/**
+ * myEvery
+ * Returns `true` if every element in this array satisfies the testing function.
+ * @callback: testing function, invoked per element to check for truthy value
+ */
+Array.prototype.myEvery = function(callback) {
+  // iterate over every element in array
+  for (let i = 0; i < this.length; ++i) {
+    // if even one element invokes false, short circuit and return false
+    if (!callback(this[i], i, this)) {
+      return false;
+    }
+  }
+  // at this point we're guaranteed all elements invokes true, we're done
+  return true;
+};
