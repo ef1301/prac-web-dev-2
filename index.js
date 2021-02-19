@@ -88,3 +88,24 @@ Array.prototype.myEvery = function(callback) {
   // at this point we're guaranteed all elements invokes true, we're done
   return true;
 };
+
+/**
+ * myReduce
+ * Apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.
+ * @callback: function to run against accumulator
+ */
+Array.prototype.myReduce = function(callback, initialValue) {
+  // if an initial valye is provided, use it, or else use first element in array
+  let acc = initialValue || this[0];
+  // if an initial value was given, we'll start reducing from beginning of the array, or else start 1 off
+  let i = initialValue ? 0 : 1;
+
+  // iterate over every element in array
+  for (; i < this.length; ++i) {
+    // we set the accumulator to whatever value the callback returns
+    acc = callback(acc, this[i], i, this);
+  }
+
+  // return whatever the end value of the accumulator is based on last callback iteration
+  return acc;
+};
