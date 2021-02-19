@@ -54,3 +54,20 @@ Array.prototype.myFilter = function(callback) {
 
   return new_array; //return new array
 };
+
+/**
+ * mySome
+ * Returns `true` if at least one element in this array satisfies the testing function.
+ * @callback: testing function, invoked per element to check for truthy value
+ */
+Array.prototype.mySome = function(callback) {
+  // iterate over every element in array
+  for (let i = 0; i < this.length; ++i) {
+    // if even one element invokes true, short circuit and return true
+    if (callback(this[i], i, this)) {
+      return true;
+    }
+  }
+  // at this point we're guaranteed all elements invokes false, we're done
+  return false;
+};
