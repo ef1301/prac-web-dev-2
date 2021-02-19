@@ -28,7 +28,7 @@ Array.prototype.Map = function(callback){
   let new_array = []; // initialize new array
 
   for(let i = 0; i < this.length; i++){
-    new_array.push(callback(this[i]), i, this); // push returned callback value to new_array
+    new_array.push(callback(this[i], i, this)); // push returned callback value to new_array
   }
 
   return new_array; // return new array
