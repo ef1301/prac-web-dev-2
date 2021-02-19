@@ -28,7 +28,7 @@ Array.prototype.Map = function(callback){
   let new_array = []; // initialize new array
 
   for(let i = 0; i < this.length; i++){
-    new_array.push(callback(this[i])); // push returned callback value to new_array
+    new_array.push(callback(this[i]), i, this); // push returned callback value to new_array
   }
 
   return new_array; // return new array
@@ -47,7 +47,7 @@ Array.prototype.Filter = function(callback){
   let new_array = [];
 
   for(let i = 0; i < this.length; i++){
-    if(callback(this[i])){ // Callback returns true
+    if(callback(this[i], i, this)){ // Callback returns true
       new_array.push(this[i]); // push matched arr[i] to new array
     }
   }
