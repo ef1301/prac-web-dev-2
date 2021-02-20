@@ -125,7 +125,25 @@ Array.prototype.myReduce = function(callback, initialValue) {
 
 /**
  * myLastIndexOf
+ * Returns the index of the last occurrence of the specified element, searching backwards from fromIndex. Returns -1 if the value is not found.
+ * @searchValue: element to search for
+ * @fromIndex (optional): the index of the last character to search from (default: length - 1)
  */
+Array.prototype.myLastIndexOf = function(searchElement, fromIndex = this.length - 1) {
+  // if fromIndex is negative use as negative offset
+  if (fromIndex < 0) {
+    fromIndex = this.length + fromIndex;
+  }
+  // iterate backwards from fromIndex
+  for (let i = fromIndex; i >= 0; i--) {
+    // return on first (last) occurrence
+    if (this[i] === searchElement) {
+      return i;
+    }
+  }
+  // return -1 if not found;
+  return -1;
+};
 
 /**
  * grabKeys
