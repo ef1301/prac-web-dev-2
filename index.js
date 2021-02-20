@@ -93,9 +93,10 @@ Array.prototype.myEvery = function(callback) {
  * myReduce
  * Apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.
  * @callback: function to run against accumulator
+ * @initialValue (optional): value to use in the first call to the callback, else use start of array and shift start index to 1
  */
 Array.prototype.myReduce = function(callback, initialValue) {
-  // if an initial valye is provided, use it, or else use first element in array
+  // if an initial value is provided, use it, or else use first element in array
   let acc = initialValue || this[0];
   // if an initial value was given, we'll start reducing from beginning of the array, or else start 1 off
   let i = initialValue ? 0 : 1;
@@ -108,4 +109,77 @@ Array.prototype.myReduce = function(callback, initialValue) {
 
   // return whatever the end value of the accumulator is based on last callback iteration
   return acc;
+};
+
+/**
+ * myIncludes
+ */
+
+/**
+ * myIndexOf
+ */
+
+/**
+ * myPush
+ */
+
+/**
+ * myLastIndexOf
+ * Returns the index of the last occurrence of the specified element, searching backwards from fromIndex. Returns -1 if the value is not found.
+ * @searchValue: element to search for
+ * @fromIndex (optional): the index of the last character to search from (default: length - 1)
+ */
+Array.prototype.myLastIndexOf = function(searchElement, fromIndex = this.length - 1) {
+  // if fromIndex is negative use as negative offset
+  if (fromIndex < 0) {
+    fromIndex = this.length + fromIndex;
+  }
+  // iterate backwards from fromIndex
+  for (let i = fromIndex; i >= 0; i--) {
+    // return on first (last) occurrence
+    if (this[i] === searchElement) {
+      return i;
+    }
+  }
+  // return -1 if not found;
+  return -1;
+};
+
+/**
+ * grabKeys
+ * Returns an array of the keys in the given object
+ * function is not prototyped
+ * @obj: the object of which the keys are to be returned.
+ */
+Object.grabKeys = function(obj) {
+  const ret = [];
+  // iterate over keys normally appending each one
+  for (let key in obj) {
+    // check to see if key is actually a key
+    if (obj.hasOwnProperty(key)) {
+      ret.push(key);
+    }
+  }
+  // returns the keys
+  return ret;
+};
+
+/**
+ * grabValues
+ * returns an array of the values in the given object
+ * function is not prototyped
+ * @obj: the object of which the values are to be returned.
+ */
+Object.grabValues = function(obj) {
+  const ret = [];
+  // iterate over keys normally
+  for (let key in obj) {
+    // check to see if key is actually a key
+    if (obj.hasOwnProperty(key)) {
+      // append value associated with key
+      ret.push(obj[key]);
+    }
+  }
+  // returns the values
+  return ret;
 };
