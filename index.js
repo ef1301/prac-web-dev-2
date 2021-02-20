@@ -147,7 +147,22 @@ Array.prototype.myLastIndexOf = function(searchElement, fromIndex = this.length 
 
 /**
  * grabKeys
+ * Returns an array of the keys in the given object
+ * function is not prototyped
+ * obj: the object of which the keys are to be returned.
  */
+Object.grabKeys = function(obj) {
+  const ret = [];
+  // iterate over keys normally appending each one
+  for (let key in obj) {
+    // check to see if key is actually a key
+    if (obj.hasOwnProperty(key)) {
+      ret.push(key);
+    }
+  }
+  // returns the keys
+  return ret;
+};
 
 /**
  * grabValues
