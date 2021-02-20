@@ -93,9 +93,10 @@ Array.prototype.myEvery = function(callback) {
  * myReduce
  * Apply a function against an accumulator and each value of the array (from left-to-right) as to reduce it to a single value.
  * @callback: function to run against accumulator
+ * @initialValue (optional): value to use in the first call to the callback, else use start of array and shift start index to 1
  */
 Array.prototype.myReduce = function(callback, initialValue) {
-  // if an initial valye is provided, use it, or else use first element in array
+  // if an initial value is provided, use it, or else use first element in array
   let acc = initialValue || this[0];
   // if an initial value was given, we'll start reducing from beginning of the array, or else start 1 off
   let i = initialValue ? 0 : 1;
