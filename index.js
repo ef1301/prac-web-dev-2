@@ -110,3 +110,27 @@ Array.prototype.myReduce = function(callback, initialValue) {
   // return whatever the end value of the accumulator is based on last callback iteration
   return acc;
 };
+
+/**
+ * myIncludes
+ */
+
+/**
+ * myIndexOf
+ */
+
+/**
+ * myPush
+ */
+
+/**
+ * myLastIndexOf
+ */
+
+/**
+ * grabKeys
+ */
+
+/**
+ * grabValues
+ */
