@@ -166,4 +166,20 @@ Object.grabKeys = function(obj) {
 
 /**
  * grabValues
+ * returns an array of the values in the given object
+ * function is not prototyped
+ * obj: the object of which the values are to be returned.
  */
+Object.grabValues = function(obj) {
+  const ret = [];
+  // iterate over keys normally
+  for (let key in obj) {
+    // check to see if key is actually a key
+    if (obj.hasOwnProperty(key)) {
+      // append value associated with key
+      ret.push(obj[key]);
+    }
+  }
+  // returns the values
+  return ret;
+};
