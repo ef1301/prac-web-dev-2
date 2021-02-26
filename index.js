@@ -111,17 +111,64 @@ Array.prototype.myReduce = function(callback, initialValue) {
   return acc;
 };
 
-/**
- * myIncludes
- */
+/*  Without using the native “Array.prototype.includes” method of JavaScript, compose a function 
+titled “myIncludes” that will take in an array of elements and indicate whether or not a target
+element is contained within the input array. This returns a boolean.
+*/
+Array.prototype.myIncludes = function(targetElement, fromIndex = 0) {
 
-/**
- * myIndexOf
- */
+  // If statement that returns false if index is larger than array length
+  if (fromIndex >= this.length){
+    return false;
+  }
 
-/**
- * myPush
- */
+  // Scans each element in fromIndex to find the targetElement
+  // If the element is found, then it returns true
+  for (let i = fromIndex; i < this.length; i++) {
+    if (this[i] === targetElement) {
+      return true;
+    }
+ }
+
+ // Returns false if any above condition has not been met yet
+ return false;
+
+}
+
+/* Without using the native “Array.prototype.indexOf” method of JavaScript, 
+compose a function titled “myIndexOf” that will take in an array of elements and 
+returns the index of the first encounter of a target element (if it is found) or -1 
+if that element does not exist within the input array.
+*/
+Array.prototype.myIndexOf = function(targetElement, fromIndex = 0) {
+
+  // For loop that iterates through the array 
+  for (i = fromIndex; i < this.length; i++) {
+  // If an element in the array is equal to targetElement then return that index
+	  if (this[i] == targetElement) {
+      return i;
+    }
+  }
+  // If not, return -1
+  return -1;
+}
+
+/* Without using the native “Array.prototype.push” method of JavaScript,
+ compose a function titled “myPush” that will take in an array of elements as 
+ well as an elementToAdd and append that element to the end of the array.
+*/
+
+Array.prototype.myPush = function(elementToAdd) {
+
+  // set arrlen current length of array
+  let arrlen = this.length;
+  // increases length of array
+  this.length = arrlen++;
+  // appends elementToAdd to array
+  this[len-1] = elementToAdd;
+
+  return arrlen;
+};
 
 /**
  * myLastIndexOf
